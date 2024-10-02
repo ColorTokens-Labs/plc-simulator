@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Filling Equipment HMI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .gauge {
+            display: inline-block;
+            margin: 20px;
+        }
+        .gauge-value {
+            font-size: 2em;
+            margin-top: 10px;
+        }
+        .control {
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .button-start {
+            background-color: green;
+            color: white;
+        }
+        .button-stop {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liquid Filling Equipment Control Panel</h1>
+
+    <!-- Liquid Level Gauge -->
+    <div class="gauge">
+        <h3>Liquid Level (Liters)</h3>
+        <input type="range" min="0" max="1000" value="500" id="levelGauge" oninput="document.getElementById('levelValue').innerText = this.value">
+        <div class="gauge-value"><span id="levelValue">500</span> L</div>
+    </div>
+
+    <!-- Flow Rate Gauge -->
+    <div class="gauge">
+        <h3>Flow Rate (L/min)</h3>
+        <input type="range" min="0" max="200" value="100" id="flowGauge" oninput="document.getElementById('flowValue').innerText = this.value">
+        <div class="gauge-value"><span id="flowValue">100</span> L/min</div>
+    </div>
+
+    <!-- Tank Pressure Gauge -->
+    <div class="gauge">
+        <h3>Tank Pressure (psi)</h3>
+        <input type="range" min="0" max="150" value="75" id="pressureGauge" oninput="document.getElementById('pressureValue').innerText = this.value">
+        <div class="gauge-value"><span id="pressureValue">75</span> psi</div>
+    </div>
+
+    <!-- Control Buttons -->
+    <div class="control">
+        <h3>Controls</h3>
+        <button class="button-start" onclick="alert('Equipment Started')">Start Equipment</button>
+        <button class="button-stop" onclick="alert('Equipment Stopped')">Stop Equipment</button>
+    </div>
+</body>
+</html>
+

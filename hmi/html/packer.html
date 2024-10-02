@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packing Equipment HMI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .gauge {
+            display: inline-block;
+            margin: 20px;
+        }
+        .gauge-value {
+            font-size: 2em;
+            margin-top: 10px;
+        }
+        .control {
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .button-start {
+            background-color: green;
+            color: white;
+        }
+        .button-stop {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Packing Equipment Control Panel</h1>
+
+    <!-- Bottles Packed Gauge -->
+    <div class="gauge">
+        <h3>Bottles Packed</h3>
+        <input type="range" min="0" max="5000" value="2500" id="bottlesPackedGauge" oninput="document.getElementById('bottlesPackedValue').innerText = this.value">
+        <div class="gauge-value"><span id="bottlesPackedValue">2500</span> Bottles</div>
+    </div>
+
+    <!-- Boxes Filled Gauge -->
+    <div class="gauge">
+        <h3>Boxes Filled</h3>
+        <input type="range" min="0" max="500" value="250" id="boxesFilledGauge" oninput="document.getElementById('boxesFilledValue').innerText = this.value">
+        <div class="gauge-value"><span id="boxesFilledValue">250</span> Boxes</div>
+    </div>
+
+    <!-- Packing Line Speed Gauge -->
+    <div class="gauge">
+        <h3>Packing Line Speed (Boxes/min)</h3>
+        <input type="range" min="0" max="100" value="50" id="speedGauge" oninput="document.getElementById('speedValue').innerText = this.value">
+        <div class="gauge-value"><span id="speedValue">50</span> Boxes/min</div>
+    </div>
+
+    <!-- Control Buttons -->
+    <div class="control">
+        <h3>Controls</h3>
+        <button class="button-start" onclick="alert('Packing Equipment Started')">Start Packing</button>
+        <button class="button-stop" onclick="alert('Packing Equipment Stopped')">Stop Packing</button>
+    </div>
+</body>
+</html>
+
