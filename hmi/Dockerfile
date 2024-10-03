@@ -1,9 +1,10 @@
 # Dockerfile to build the HMI simulator
 # Available on dockerhub as colortokenslabs/hmi-simulator
 #
-# Specify the HMI type for the web interface using 
-# -e HMI_TYPE = filler|stacker|packer
-# Default is filler (if HMI_TYPE is unspecified)
+# When you start the container specify the following arguments:
+#   HMI type - filler|packer|stacker
+#   number of PLCs
+#   port number on PLC (502 for modbus, 102 for S7)
 #
 # (C) 2024, ColorTokens Inc.
 # Venky Raju
@@ -24,5 +25,6 @@ COPY html/filler.html /usr/share/nginx/html/filler.html
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Run the entrypoint script
-CMD ["/entrypoint.sh"]
+# Run the entrypoint script.
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["filler", "5", "502"]
